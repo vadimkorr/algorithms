@@ -1,0 +1,14 @@
+{
+  "name": "alg-disp",
+  "version": "1.0.0",
+  "description": "app for displaying algorithms",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vadimkorr",
+  "license": "MIT",
+  "dependencies": {
+    "requirejs": "^2.3.5"
+  }
+}

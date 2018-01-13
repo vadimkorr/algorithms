@@ -1,0 +1,29 @@
+.line-ind {
+    text-align: right;
+    user-select: none;
+    padding-right: 10px !important;
+}
+
+.code {
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    white-space: pre;
+}
+
+[data-pseudo-content]::before,
+[data-pseudo-content--before]::before,
+[data-pseudo-content--after]::after {
+  content: attr(data-pseudo-content);
+}
+
+.code td {
+    padding: 0px;
+    line-height: 14px;
+}
+
+code {
+    padding: 2px !important;
+}
+
+.borderless > tbody > tr td {
+    border: none !important;
+}
