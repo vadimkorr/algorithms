@@ -1,15 +1,311 @@
 [{
-	"title": "",
-	"task": "",
+	"title": "Find position",
+	"task": "Given sorted array and X, find the position of X in the array",
+	"img": "",
 	"solution": [
-"line 1",
-"line 2",
-"line 3"
+"let findInd = function(arr, x) {",
+"  let l = 0, r = arr.length",
+" ",
+"  while (l <= r) {",
+"    let mid = l + Math.floor((r-l)/2)",
+"    if (arr[mid] == x) return mid",
+"    else if (arr[mid] < x) l = mid + 1",
+"    else r = mid - 1",
+"    console.log('[' + l + ', ' + r +']')",
+"  }",
+"  return -1",
+"  console.log('searching in [' + l + ', ' + r + ']')",
+"}",
+" ",
+"let arr = [3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170]",
+"console.log('res: ' + findInd(arr, 170))"
 	],
-	"complexity": "",
+	"complexity": "?",
 	"links": [{
-		"title": "",
-		"link": ""
+		"title": "First occurrence binary search",
+		"link": "http://www.ffbit.com/blog/2013/02/26/first-occurrence-binary-search/"
 	}],
-	"tags": []
+	"tags": ["array", "search"]
+},{
+	"title": "Find position (infinite)",
+	"task": "Given sorted infinite array and X, find the position of X in the array",
+	"img": "",
+	"solution": [
+"let findInd = function(arr, x) {  ",
+"  let l = 0, r = 1, val = arr[l]  ",
+"  ",
+"  // find boundaries  ",
+"  while (val < x) {  ",
+"    l = r  ",
+"    r *= 2  ",
+"    val = arr[r]  ",
+"  }  ",
+"  console.log('searching in [' + l + ', ' + r + ']')  ",
+"  ",
+"  // find index  ",
+"  return search(arr, l, r, x)  ",
+"}  ",
+"  ",
+"let search = function(arr, l, r, x) {  ",
+"  if (r >= l) {  ",
+"   let mid = l + Math.floor((r-l)/2)  ",
+"    console.log('mid: ' + mid)  ",
+"    if (arr[mid] == x) return mid  ",
+"    if (arr[mid] > x) return search(arr, l, mid - 1, x)  ",
+"    return search(arr, mid + 1, r, x)  ",
+"    return -1;  ",
+"  }  ",
+"}  ",
+"  ",
+"let arr = [3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170]  ",
+"console.log('res: ' + findInd(arr, 170))  "
+	],
+	"complexity": "?",
+	"links": [{
+		"title": "geeksforgeeks",
+		"link": "https://www.geeksforgeeks.org/find-position-element-sorted-array-infinite-numbers/"
+	}],
+	"tags": ["array", "search", "infinite"]
+},{
+	"title": "Find all divisors",
+	"task": "Find all divisors of given number",
+	"img": "",
+	"solution": [
+"let getPrimeFactors = function(x) {  ",
+"  for (let i=1; i<=Math.sqrt(x); i++) {  ",
+"    if (x%i === 0) {  ",
+"      if (Math.floor(x/i) === i) console.log(i)  ",
+"      else console.log(i, Math.floor(x/i))  ",
+"    }  ",
+"  }  ",
+"}  ",
+" ",
+"let x = 315;  ",
+"getFactors(x);  "
+	],
+	"complexity": "?",
+	"links": [{
+		"title": "geeksforgeeks",
+		"link": "https://www.geeksforgeeks.org/find-divisors-natural-number-set-1/"
+	}],
+	"tags": ["divisors", "factors", "numbers"]
+},{
+	"title": "Prime factors",
+	"task": "Find prime factors of a given number",
+	"img": "",
+	"solution": [
+"let getPrimeFactors = function(x) {  ",
+"  let count = 0  ",
+"  // print the number of 2s that divide x  ",
+"  while (x%2 === 0) {  ",
+"    x = Math.floor(x/2)  ",
+"    count++  ",
+"    console.log(2 + ' ')  ",
+"  }  ",
+"  ",
+"  // n must be odd  ",
+"  for (let i = 3; i <= Math.sqrt(x); i += 2) {  ",
+"   while (x%i === 0) {  ",
+"      x = Math.floor(x/i)  ",
+"      count++  ",
+"      console.log(i + ' ')  ",
+"    }  ",
+" }  ",
+"  ",
+"  if (x > 2) {  ",
+"    count++  ",
+"    console.log(x + ' ')  ",
+"  }  ",
+"    ",
+"  return count  ",
+"}  ",
+"  ",
+"let x = 35;  ",
+"console.log('number of prime factors is: ' + getPrimeFactors(x));  "
+	],
+	"complexity": "?",
+	"links": [{
+		"title": "geeksforgeeks",
+		"link": "https://www.geeksforgeeks.org/print-all-prime-factors-of-a-given-number/"
+	}],
+	"tags": ["prime factors", "numbers"]
+},
+{
+	"title": "Insert and print linked list",
+	"task": "Insert and print linked list",
+	"img": "",
+	"solution": [
+"function dll() {  ",
+"  this.head = null  ",
+"}  ",
+"  ",
+"dll.prototype.push = function(val) {  ",
+"  let head = this.head, curr = head, prev = head  ",
+"  if (!head) this.head = { val: val, prev: null, next: null }  ",
+"  else {  ",
+"    while (curr && curr.next) {  ",
+"      prev = curr  ",
+"      curr = curr.next  ",
+"    }  ",
+"    curr.next = { val: val, prev: curr, next: null }  ",
+"  }  ",
+"}  ",
+"  ",
+"dll.prototype.print = function() {  ",
+"  let curr = this.head  ",
+"  while(curr) {  ",
+"    console.log(curr.val)  ",
+"    curr = curr.next  ",
+"  }  ",
+"}"
+	],
+	"complexity": "?",
+	"links": [{
+		"title": " ",
+		"link": " "
+	}],
+	"tags": ["linked list", "list", "insert"]
+},
+{
+	"title": "Reverse linked list",
+	"task": "Reverse linked list",
+	"img": "",
+	"solution": [
+"function reverse(dll) {  ",
+"  let curr = dll.head, prev = null  ",
+"  ",
+"  while(curr) {  ",
+"    let next = curr.next  ",
+"    curr.next = prev  ",
+"    prev = curr  ",
+"    curr = next  ",
+"  }  ",
+"  dll.head = prev  ",
+"}  "
+	],
+	"complexity": "?",
+	"links": [{
+		"title": " ",
+		"link": " "
+	}],
+	"tags": ["reverse", "linked list"]
+},
+{
+	"title": "Insert to sorted list",
+	"task": "Insert a number to a sorted linked list with respect to the sorted order",
+	"img": "",
+	"solution": [
+"dll.prototype.pushSorted = function(val) {  ",
+"  let curr = this.head  ",
+"  // empty list  ",
+"  if (!curr) {  ",
+"    curr = { val: val, prev: null, next: null }  ",
+"    this.head = curr  ",
+"  } else {  ",
+"    while(curr) {  ",
+"      if (val <= curr.val) {  ",       
+"        let n = { val: val, prev: curr.prev, next: curr }  ",
+"        // only one element  ",
+"        if (curr == this.head) {  ",
+"          this.head = n  ",
+"          return  ",
+"        }  ",
+"        // in between  ",
+"        else {  ",
+"          curr.prev.next = n  ",
+"         curr.prev = n  ",
+"          return;  ",
+"        }  ",
+"      }  ",
+"      // reached last element  ",
+"      if (!curr.next) {  ",
+"        curr.next = { val: val, prev: curr, next: null }  ",
+"        return  ",
+"      }  ",
+"      curr = curr.next  ",
+"    }  ",
+"  }  ",
+"}  "
+	],
+	"complexity": "?",
+	"links": [{
+		"title": " ",
+		"link": " "
+	}],
+	"tags": [" "]
+},
+{
+	"title": "Merge linked lists",
+	"task": "Merge two sorted linked lists to one sorted",
+	"img": "",
+	"solution": [
+"let acurr = adll.head  ",
+"let bcurr = bdll.head  ",
+"let cdll = new dll()  ",
+"  ",
+"while (acurr && bcurr) {  ",
+"    if(acurr.val < bcurr.val) {  ",
+"      cdll.push(acurr.val)  ",
+"      acurr = acurr.next  ",
+"    } else {  ",
+"      cdll.push(bcurr.val)  ",
+"      bcurr = bcurr.next  ",
+"    }  ",
+"}  ",
+"  ",
+"while (acurr) {  ",
+"  cdll.push(acurr.val)  ",
+"  acurr = acurr.next  ",
+"}  ",
+"  ",
+"while (bcurr) {  ",
+"  cdll.push(bcurr.val)  ",
+"  bcurr = bcurr.next  ",
+"}  "
+	],
+	"complexity": "?",
+	"links": [{
+		"title": " ",
+		"link": " "
+	}],
+	"tags": ["merge", "linked list"]
+},{
+	"title": " ",
+	"task": " ",
+	"img": "",
+	"solution": [
+	
+	],
+	"complexity": "?",
+	"links": [{
+		"title": " ",
+		"link": " "
+	}],
+	"tags": [" "]
+},{
+	"title": " ",
+	"task": " ",
+	"img": "",
+	"solution": [
+	
+	],
+	"complexity": "?",
+	"links": [{
+		"title": " ",
+		"link": " "
+	}],
+	"tags": [" "]
+},{
+	"title": " ",
+	"task": " ",
+	"img": "",
+	"solution": [
+	
+	],
+	"complexity": "?",
+	"links": [{
+		"title": " ",
+		"link": " "
+	}],
+	"tags": [" "]
 }]
